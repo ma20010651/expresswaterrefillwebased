@@ -1,0 +1,129 @@
+<?php require_once "functions.php"; require "../connection.php"; ?>
+<?php
+if($_SESSION['info'] == false){
+    header('Location: login.php');  
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+  <script src = "../js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <style>
+
+    body{
+    margin: 0;
+    font-family: Darker Grotesque;  }
+    form {
+  position: relative;
+  z-index: 1;
+  max-width: 380px;
+  height: 400px;
+  margin-left: 33%;
+  border-radius: 20px;
+  margin-top: 20px;
+  text-align: left;
+  color: white;
+  background-image: url(../images/bgg.jpg);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.24);
+  border: 1px solid #ddd;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #0492c2;
+  color: white;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 26px;
+  padding-bottom: 10px;
+}
+
+.topnav a {
+  float: right;
+  color: white;
+  margin: 20px 20px;
+  padding: 6px 8px 6px 8px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #03a9a8;
+}
+
+.topnav a.active {
+  background-color:  #03c2c1;
+  color: white;
+}
+
+form {
+  position: relative;
+  z-index: 1;
+  height: 350px;
+  margin: 0 auto 60px;
+  border-radius: 20px;
+  margin-top: 80px;
+  text-align: center;
+  color: #333;
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.24);
+  border: 1px solid #333;
+}
+
+.button {
+    background-color: #333;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.button:hover {
+  background-color: #262626;
+  color: white;
+  }
+
+  input[type=text] {
+  width: 40%;
+  padding: 10px;
+  display: inline-block;
+  border: .5px solid;
+  box-sizing: border-box;
+}
+</style>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 form login-form">
+            <?php 
+            if(isset($_SESSION['info'])){
+                ?>
+                <div class="alert alert-success text-center">
+                <?php echo $_SESSION['info']; ?>
+                </div>
+                <?php
+            }
+            ?>
+                <form action="login.php" method="POST">
+                    <div class="form-group">
+                        <input class="form-control button" type="submit" name="login-now" value="Login Now">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
